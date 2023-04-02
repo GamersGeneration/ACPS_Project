@@ -1,0 +1,27 @@
+<!-- Created: 01-04-2023 by rePUBLIC -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Dashboard</title>
+</head>
+<body>
+    <h1>My Dashboard</h1>
+    <p>Welcome to my dashboard!</p>
+        {% for item in data %}
+        {{ item }}
+        {% endfor %}
+        <h2>Plot</h2>
+    {{ plot_div|safe }}
+
+
+    <h1>Cow Detection Dashboard</h1>
+    <div id="plot"></div>
+    <form method="post" action="/predict" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*">
+      <input type="submit" value="Predict">
+    </form>
+    <div id="prediction"></div>
+    <script src="{{ url_for('static', filename='app/form.js') }}"></script>
+
+</body>
+</html>
